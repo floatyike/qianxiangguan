@@ -1,0 +1,38 @@
+<aside id="aAside">
+    <div>关于我们</div>
+    <div></div>
+    <div>滴答滴答滴答滴答滴答滴</div>
+</aside>
+<article id="aArticle">
+    <figure>
+        <p><span></span>黄浦江上的卢浦大桥</p>
+        <p class="lighter">实际效果是一样的微软雅黑字体，但是考虑有些网站不兼容中文（GB2312）
+            的字符还是用英文的比较好。
+        </p>
+        <img src="images/001.png"  alt="">
+        <h5></h5>
+    </figure>
+    <figure>
+        <p><span></span>黄浦江上的卢浦大桥</p>
+        <p class="lighter">实际效果是一样的微软雅黑字体，但是考虑有些网站不兼容中文（GB2312）的字符还是用英文的比较好。
+            效果貌似都是一样的，不过有时候【微软雅黑】有可能会不识别宋体（SimSun）：Win下大部分游览器的默认字体，宋体在小字号下（如12px、14px）的显示效果还可以接受，但是字号一大就非常糟糕了，所以使用的时候要注意。
+        </p>
+        <img src="images/001.png"  alt="">
+        <h5></h5>
+    </figure>
+    <figure>
+        <p><span></span>黄浦江上的卢浦大桥</p>
+        <p class="lighter">实际效果是一样的微软雅黑字体，但是考虑有些网站不兼容中文（GB2312）的字符还是用英文的比较好。
+            效果貌似都是一样的，不过有时候【微软雅黑】有可能会不识别宋体（SimSun）：Win下大部分游览器的默认字体，宋体在小字号下（如12px、14px）的显示效果还可以接受，但是字号一大就非常糟糕了，所以使用的时候要注意。
+        </p>
+        <img src="images/001.png"  alt="">
+        <h5></h5>
+    </figure>
+</article>
+<script>
+//    让右侧title固定显示
+    $('#content').scroll(function () {
+        var scrolld=$('#content').scrollTop()+200;
+        $('#aAside').css('top',scrolld);
+    })
+</script>

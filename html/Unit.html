@@ -1,0 +1,231 @@
+<aside id="asideR">
+    <div id="triangle"></div>
+    <ul id="smipleItr">
+        <li class="show1">苹果Lorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum . <br> dolor sitLorem ipsum dolor sit 1</li>
+        <li class="show1">梨Lorem ipsum dolor Lorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitsit 2</li>
+        <li class="show1">西瓜果Lorem ipsum doLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitlor sit 3</li>
+        <li class="show1">橘子Lorem ipsum dL5orem <br> ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitolLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitor sit 4</li>
+        <li class="show1">黄杏Lorem ipsumLorem ipsum dolor sitLorem ipsum dolor sit dolor sit 5</li>
+    </ul>
+    <br>
+    <br>
+    <ul id="details">
+        <li class="showDtl">
+            <h3>与阿里合作项目1</h3>
+            <p class="lined"></p>
+            <img src="images/003.png"  alt="">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis dolorum exercitationem hic magni necessitatibus, nesciunt? Atque doloremque eius, error esse facere facilis hic illum iure quam quia quidem vel.</p>
+        </li>
+        <li class="showDtl">
+            <h3>与腾讯合作项目2</h3>
+            <p class="lined"></p>
+            <img src="images/003.png"  alt="">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis dolorum exercitationem hic magni necessitatibus, nesciunt? Atque doloremque eius, error esse facere facilis hic illum iure quam quia quidem vel.</p>
+        </li>
+        <li class="showDtl">
+            <h3>与百度合作项目3</h3>
+            <p class="lined"></p>
+            <img src="images/003.png"  alt="">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis dolorum exercitationem hic magni necessitatibus, nesciunt? Atque doloremque eius, error esse facere facilis hic illum iure quam quia quidem vel.</p>
+        </li>
+        <li class="showDtl">
+            <h3>与小米合作项目4</h3>
+            <p class="lined"></p>
+            <img src="images/003.png"  alt="">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis dolorum exercitationem hic magni necessitatibus, nesciunt? Atque doloremque eius, error esse facere facilis hic illum iure quam quia quidem vel.</p>
+        </li>
+        <li class="showDtl">
+            <h3>与优酷合作项目5</h3>
+            <p class="lined"></p>
+            <img src="images/003.png"  alt="">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis dolorum exercitationem hic magni necessitatibus, nesciunt? Atque doloremque eius, error esse facere facilis hic illum iure quam quia quidem vel.</p>
+        </li>
+    </ul>
+    <ul id="asideS">
+        <li class="show0"><small></small><span>与阿里合作项目<1111</span></li>
+        <li class="show0"><small></small><span>与优酷合作项目<2222</span></li>
+        <li class="show0"><small></small><span>与支付宝合作项目333333</span></li>
+        <li class="show0"><small></small><span>与百度合作项目<444444</span></li>
+        <li class="show0"><small></small><span>与支付宝合作项目55555555</span></li>
+    </ul>
+    <div id="title0">
+        <div>业务单元</div>
+        <div></div>
+        <div>水中的鱼儿很漂亮</div>
+    </div>
+    <div id="back"> &lt;&lt; 返回 </div>
+</aside>
+<div id="cover"></div>
+<script>
+
+    var details=false;
+    var right = 50;
+    var animating = false;
+    var clicked = false;
+        //动画距离右侧距离
+        function rights() {
+            for(var i=0;i<5;i++ ){
+
+                var dist=$('#mainContent').width() - right - $('.show0').eq(i).width();
+                $('.show0').eq(i).css({left:dist + 'px'});
+            }
+        }
+    var box1 = document.getElementById("asideS");
+
+    var index=$('.actives').index();
+    //滚轮切换左侧内容
+    function mouseScroll(idx) {
+        $('.show0').eq(index).addClass('actives').siblings().removeClass('actives');
+        $('.show1').eq(index).stop().show().siblings().stop().hide();
+        details?$('.showDtl').eq(index).stop().fadeIn(2000).siblings().stop().fadeOut(2000):'';
+    }
+    //为box1绑定一个鼠标滚轮滚动的事件
+    box1.onmousewheel = function(event){
+        event = event || window.event;
+        if(event.wheelDelta < 0 || event.detail > 0){
+            if(index<5){
+                ++index;
+                mouseScroll(index);
+            }else{
+                index=-1;
+                index++;
+                mouseScroll(index);
+            }
+        }else{
+            if(index>-1){
+                --index;
+                mouseScroll(index);
+            }else{
+                index=5;
+                --index;
+                mouseScroll(index);
+            }
+        }
+        if(clicked){
+            rights();
+        }
+        event.preventDefault &&　event.preventDefault();
+        return false;
+
+    };
+
+    bind(box1 , "DOMMouseScroll" , box1.onmousewheel);
+    function bind(obj , eventStr , callback){
+
+        if(obj.addEventListener){
+            obj.addEventListener(eventStr , callback , false);
+        }else{
+            //IE8
+            obj.attachEvent("on"+eventStr , function(){
+                callback.call(obj);
+            });
+        }
+    }
+
+    $('#asideS').on('click','li.show0',function () {
+        /*$('#container-navs li:eq(2)').remove();
+        $('#container-navs').append('<li><small>>> </small><span>'+$(this).text()+'</span></li>');*/
+        $('#back').fadeIn(1000);
+        //遮罩
+        $('#cover').fadeIn(2000);
+        //简介消失
+        $('#smipleItr').fadeOut();
+        $('#title0').fadeOut();
+
+        //三角形
+        $('#triangle').delay(500).animate({marginLeft:'868px'},1000,'swing');
+        details=true;
+        $('#details').fadeIn();
+
+        var dist1 = $('#mainContent').width() - right - $('.show0:eq(0)').width();
+        var dist2 = $('#mainContent').width() - right - $('.show0:eq(1)').width();
+        var dist3 = $('#mainContent').width() - right - $('.show0:eq(2)').width();
+        var dist4 = $('#mainContent').width() - right - $('.show0:eq(3)').width();
+        var dist5 = $('#mainContent').width() - right - $('.show0:eq(4)').width();
+        animating = true;
+
+        $('.show0:eq(0)').delay(1000).animate({left:dist1 + 'px'},500,'swing');
+        $('.show0:eq(1)').delay(800).animate({left:dist2 + 'px'},500,'swing');
+        $('.show0:eq(2)').animate({left:dist3+ 'px'},1000,'swing');
+        $('.show0:eq(3)').delay(800).animate({left:dist4 + 'px'},500,'swing');
+        $('.show0:eq(4)').delay(1000).animate({left:dist5 + 'px'},500,'swing',function () {
+            //延迟动画
+            animating = false;
+            clicked = true;
+        });
+
+
+        $('#content').scroll(function () {
+            $('#triangle').css('top',$('#content').scrollTop()+60);
+            $('.show0:eq(0)').css('top',$('#content').scrollTop()+200);
+            $('.show0:eq(1)').css('top',$('#content').scrollTop()+330);
+            $('.show0:eq(2)').css('top',$('#content').scrollTop()+440);
+            $('.show0:eq(3)').css('top',$('#content').scrollTop()+560);
+            $('.show0:eq(4)').css('top',$('#content').scrollTop()+660);
+        });
+
+        details?$('.showDtl:eq('+index+')').stop().delay(2000).fadeIn(2000).siblings().stop().hide():'';
+
+    });
+//    鼠标移动切换内容事件
+    $('#asideS').on('mouseover','li.show0',function () {
+        if(animating){
+            return;
+        }
+        var i=$(this).index();
+        $(this).addClass('actives').siblings().removeClass('actives');
+
+        if(clicked){
+            rights();
+        }
+        $('.show1').eq(i).stop().fadeIn().siblings().stop().hide();
+        details?$('.showDtl').eq(i).stop().fadeIn(2000).siblings().stop().hide():'';
+    });
+
+//    返回到左侧
+    function back() {
+        details=false;
+        clicked = false;
+        $('#content').unbind('scroll');
+
+
+        $('#triangle').css('top','60px');
+        $('#smipleItr').css('top','436px');
+
+        $('.show0:eq(0)').css('top','200px');
+        $('.show0:eq(1)').css('top','330px');
+        $('.show0:eq(2)').css('top','440px');
+        $('.show0:eq(3)').css('top','560px');
+        $('.show0:eq(4)').css('top','660px');
+
+        $('#back').fadeOut(1000);
+
+        $('#cover').fadeOut(1000);
+
+        $('.showDtl:eq('+index+')').stop().hide();
+        $('#details').fadeOut();
+        $('#triangle').delay(500).animate({marginLeft:'0'},1000,'swing');
+
+//        $('#container-navs li:eq(2)').remove();
+
+        $('.show0:eq(0)').delay(500).animate({left:'328px'},1000,'swing');
+
+        $('.show0:eq(1)').delay(300).animate({left:'386px'},1000,'swing');
+
+        $('.show0:eq(2)').delay(200).animate({left:'398px'},1000,'swing');
+
+        $('.show0:eq(3)').delay(300).animate({left:'376px'},1000,'swing');
+
+        $('.show0:eq(4)').delay(500).animate({left:'324px'},1000,'swing');
+
+        $('#title0').delay(1500).fadeIn();
+        $('#smipleItr').delay(2000).fadeIn();
+    }
+    $('#container-navs li:eq(1)').click(function () {
+        back();
+    });
+    $('#back').click(function () {
+        back()
+    });
+
+</script>

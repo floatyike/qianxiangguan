@@ -1,0 +1,77 @@
+<aside id="jAside">
+    <div>加入我们</div>
+    <div></div>
+    <div>哈哈哈哈。。。哈哈哈哈哈</div>
+</aside>
+<article id="jArticle">
+    <h2>迁想公关正在招聘的职位</h2>
+    <h3>迁想公关正在招聘的职位迁想公关正在招聘的职位迁想公关正在招聘的职位迁想公关正在招聘的职位</h3>
+    <div class="jArticle">
+        <ul id="category">
+            <li>职位类别 <span></span></li>
+
+            <li class="showCtg active">不限</li>
+            <li class="showCtg">战士</li>
+            <li class="showCtg">&nbsp;&nbsp;&nbsp;法师</li>
+            <li class="showCtg">&nbsp;&nbsp;&nbsp;&nbsp;弓箭手</li>
+        </ul>
+        <ul id="dates">
+            <li>工作经验 <span></span></li>
+
+            <li class="showCtg active">不限</li>
+            <li class="showCtg">无经验</li>
+            <li class="showCtg">1年以上</li>
+            <li class="showCtg">2-3年</li>
+        </ul>
+        <p class="lineS"></p>
+        <ul class="jDetail">
+        </ul>
+    </div>
+</article>
+<script>
+    var load={
+        '不限不限':'html/join/all-1.html',
+        '不限无经验':'html/join/all-2.html',
+        '不限1年以上':'html/join/all-3.html',
+        '不限2-3年':'html/join/all-4.html',
+        '战士不限':'html/join/all0-1.html',
+        '战士无经验':'html/join/all0-2.html',
+        '战士1年以上':'html/join/all0-3.html',
+        '战士2-3年':'html/join/all0-4.html',
+        '法师不限':'html/join/all00-1.html',
+        '法师无经验':'html/join/all00-2.html',
+        '法师1年以上':'html/join/all00-3.html',
+        '法师2-3年':'html/join/all00-4.html',
+        '弓箭手不限':'html/join/all01-1.html',
+        '弓箭手无经验':'html/join/all02-2.html',
+        '弓箭手1年以上':'html/join/all03-3.html',
+        '弓箭手2-3年':'html/join/all04-4.html'
+    };
+    //默认加载页面
+    $('.jDetail').load('html/join/all-1.html');
+    //切换加载
+    var change=function () {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+        var option=$('#category li.active').text()+$('#dates li.active').text();
+        //加载
+        $('.jDetail').load(load[option]);
+    };
+
+    $('#category').on('click','.showCtg',change);
+    $('#dates').on('click','.showCtg',change);
+    //招聘导航显示
+    $('.jDetail').on('click','.JShow',function () {
+        $(this).parent().siblings().fadeIn();
+    });
+    $('.jDetail').on('click','.shut',function () {
+        $(this).parent().fadeOut();
+    });
+
+    //固定显示
+    $('#content').scroll(function () {
+        var scrolld=$('#content').scrollTop()+166;
+        $('#jAside').css('top',scrolld);
+    })
+
+</script>

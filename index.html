@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/change.css">
+    <script type="application/javascript" src="js/three.js"></script>
+    <script type="application/javascript" src="js/shader/DOFShader.js"></script>
+    <script type="application/javascript" src="js/TweenMax.min.js"></script>
+    <title>Empathink</title>
+    <style>
+        body{
+            background: radial-gradient(#FFFDF8 20%, #E0E1DF 100%)
+        }
+    </style>
+</head>
+<body>
+    <!--顶部导航显示-->
+    <header>
+        <div id="container-nav">
+            <ul id="container-navs">
+                <li id="home" class="button"><span>主页</span></li>
+            </ul>
+            <span id="closeD" class="button">&nbsp;x</span>
+        </div>
+    </header>
+    <div id="canvas">
+    </div>
+    <section>
+
+
+        <div id="content">
+            <!--弹窗显示主要内容-->
+            <div id="mainContent">
+
+            </div>
+        </div>
+    </section>
+    <footer id="footer">
+        <div id="logo">Empathink</div>
+        <ul id="nav">
+            <li class="show">关于我们</li>
+            <li class="show">业务单元</li>
+            <li class="show">服务案例</li>
+            <li class="show">团队</li>
+            <li class="show">加入我们</li>
+            <li class="show">联系我们</li>
+        </ul>
+    </footer>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="application/javascript" src="js/empathink/object.js"></script>
+<script type="application/javascript" src="js/empathink/manager.js"></script>
+<script src="js/content.js"></script>
+<script>
+    init();
+    animate();
+</script>
+</html>

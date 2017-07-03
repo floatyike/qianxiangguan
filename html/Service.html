@@ -1,0 +1,72 @@
+<article id="service">
+    <div id="client">
+        <h2><span></span> 客户</h2>
+
+        <div class="clientC">
+            <ul class="clients">
+                <li><img src="images/ClentLogo_01.png" alt=""></li>
+                <li><img src="images/ClentLogo_02.png" alt=""></li>
+                <li><img src="images/ClentLogo_03.png" alt=""></li>
+                <li><img src="images/ClentLogo_04.png" alt=""></li>
+                <li><img src="images/ClentLogo_05.png" alt=""></li>
+                <li><img src="images/ClentLogo_06.png" alt=""></li>
+            </ul>
+            <ul class="clientsd">
+                <li><img src="images/ClentLogo_07.png" alt=""></li>
+                <li><img src="images/ClentLogo_08.png" alt=""></li>
+                <li><img src="images/ClentLogo_09.png" alt=""></li>
+                <li><img src="images/ClentLogo_10.png" alt=""></li>
+                <li><img src="images/ClentLogo_11.png" alt=""></li>
+                <li><img src="images/ClentLogo_12.png" alt=""></li>
+            </ul>
+        </div>
+
+    </div>
+    <div style="position: relative;margin-top: 40px;width:880px;">
+        <h2 ><span></span> 工作</h2>
+        <div id="work">
+            <figure>
+                <h3>美食，工作，设计稿上，有一处内嵌的介绍信息，当文字过长时，要求使用一个经过处理的滚动条来展示。
+                    如果仅要求IE浏览器，可以通过调整CSS的方式，来给滚动条换色。休息1</h3>
+                <img src="images/006.png" alt="">
+                <p></p>
+            </figure>
+            <figure>
+                <h3>美食，工作，设计稿上，有一处内嵌的介绍信息，当文字过长时，要求使用一个经过处理的滚动条来展示。
+
+                    如果要求兼容firefox，可以使用JQ来进行制作。
+
+                    如果仅要求IE浏览器，可以通过调整CSS的方式，来给滚动条换色。休息2</h3>
+                <img src="images/006.png" alt="">
+                <p></p>
+            </figure>
+            <figure>
+                <h3>美食，工作，设计稿上，有一处内嵌的介绍信息，当文字过长时，要求使用一个经过处理的滚动条来展示。
+
+                    如果要求兼容firefox，可以使用JQ来进行制作。
+
+                    如果仅要求IE浏览器，可以通过调整CSS的方式，来给滚动条换色。休息3</h3>
+                <img src="images/006.png" alt="">
+                <p></p>
+             </figure>
+        </div>
+        <!--<div id="controlS">
+            <div class="showSve">展开 <span></span></div>
+            <div class="showSve">收起 <span></span></div>
+        </div>-->
+    </div>
+
+</article>
+<aside id="STitle">
+    <div>服务案例</div>
+    <p></p>
+    <div>啵啦啵啦啵啦啵啦啵啦啵啦啵啦</div>
+</aside>
+<script>
+//右侧title 固定显示
+$('#content').scroll(function () {
+    var scrolld=$('#content').scrollTop()+380;
+//        console.log(scrolld);
+    $('#STitle').css('top',scrolld);
+})
+</script>

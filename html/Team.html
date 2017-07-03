@@ -1,0 +1,58 @@
+<aside id="aAside">
+    <div>团队介绍</div>
+    <div></div>
+    <div>哈哈哈哈。。。哈哈哈哈哈</div>
+</aside>
+<article id="tArticle">
+    <div>
+        <img class="showtS showsC" src="images/Team_1.png" style="width:388px;" alt="">
+        <img class="showtS showsC" src="images/Team_2.png" style="width:348px;margin-left:-46px"alt="">
+    </div>
+    <!--文章-->
+    <div id="introduce">
+        <!--<h3>团队简介</h3>-->
+        <ul>
+            <li class="tItr">
+                <h3>王一楠 <small>CEO/VP</small></h3>
+                <p>毕业于英国萨塞克斯大学，获数字媒体专业硕士学位，青藤文化合伙人。曾在英特尔中国大区市场部实习工作，同期作为合伙人参与过O2O创业行为。后加入青藤文化负责市场推广工作，兼任项目策划、制片人。</p>
+            </li>
+            <li class="tItr">
+                <h3>王一楠 <small>CEO/VP</small></h3>
+                <p>毕业于英国萨塞克斯大学，获数字媒体专业硕士学位，青藤文化合伙人。曾在英特尔中国大区市场部实习工作，同期作为合伙人参与过O2O创业行为。后加入青藤文化负责市场推广工作，兼任项目策划、制片人。</p>
+            </li>
+            <li class="tItr">33333Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto commodi cum deserunt earum exercitationem expedita id illum ipsa molestias necessitatibus nemo neque nulla quod reprehenderit tempora, totam veniam voluptatum.</li>
+            <li class="tItr">44444Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto commodi cum deserunt earum exercitationem expedita id illum ipsa molestias necessitatibus nemo neque nulla quod reprehenderit tempora, totam veniam voluptatum.</li>
+            <li class="tItr">555555Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto commodi cum deserunt earum exercitationem expedita id illum ipsa molestias necessitatibus nemo neque nulla quod reprehenderit tempora, totam veniam voluptatum.</li>
+            <li class="tItr">666666Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto commodi cum deserunt earum exercitationem expedita id illum ipsa molestias necessitatibus nemo neque nulla quod reprehenderit tempora, totam veniam voluptatum.</li>
+            <li class="tItr">77777  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto commodi cum deserunt earum exercitationem expedita id illum ipsa molestias necessitatibus nemo neque nulla quod reprehenderit tempora, totam veniam voluptatum.</li>
+        </ul>
+        <br>
+    </div>
+    <div id="imgM">
+        <img class="showt showsC" src="images/Team_3.png" style="width:210px;" alt="">
+        <img class="showt showsC" src="images/Team_4.png" style="width:200px;margin-left:-36px;" alt="">
+        <img class="showt showsC" src="images/Team_5.png" style="width:200px;margin-left:-42px;" alt="">
+        <img class="showt showsC" src="images/Team_6.png" style="width:210px;float:right;margin-top: -226px;"alt="">
+    </div>
+</article>
+<script>
+    //固定title
+    $('#content').scroll(function () {
+        var scrolld=$('#content').scrollTop()+200;
+        $('#aAside').css('top',scrolld);
+    });
+    //鼠标悬停切换内容
+    $('.showtS').on('mouseenter',function () {
+
+        var i=$(this).index();
+        $('.tItr').eq(i).stop().fadeIn(300).siblings().stop().fadeOut(300);
+    });
+    $('.showt').on('mouseover',function () {
+        var i=$(this).index()+2;
+        $('.tItr').eq(i).stop().fadeIn(300).siblings().stop().fadeOut(100);
+    });
+    //移除显示团队的简介
+    $('.showsC').on('mouseout',function () {
+        $('.tItr').eq(6).stop().fadeIn(300).siblings().stop().fadeOut(100);
+    });
+</script>
